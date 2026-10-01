@@ -1,0 +1,23 @@
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  min-height: 220px;
+}
+.chart-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+}
+.chart-value { font-size: .78rem; font-weight: 700; color: var(--color-primary-dark); }
+.chart-bar {
+  width: 100%;
+  max-width: 48px;
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-dark));
+  border-radius: 6px 6px 2px 2px;
+}
+.chart-label { font-size: .8rem; font-weight: 700; color: var(--color-text); }
+.chart-dish { font-size: .68rem; color: var(--color-muted); text-align: center; }

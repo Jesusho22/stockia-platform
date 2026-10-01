@@ -1,0 +1,42 @@
+<div class="page-header">
+  <div>
+    <h1>Predicción de demanda</h1>
+    <p>Proyección de ventas por plato para los próximos 7 días, combinando históricos de venta y clima (US24).</p>
+  </div>
+  <button class="btn btn-primary" (click)="generate()" [disabled]="generating()">
+    {{ generating() ? 'Generando…' : 'Generar nueva predicción (IA)' }}
+  </button>
+</div>
+
+@if (!forecast.latest()) {
+  <div class="card"><div class="empty-state">Aún no hay predicciones generadas. Usa el botón de arriba.</div></div>
+} @else {
+  <div class="grid-stats">
+    <div class="card">
+      <p style="margin-bottom:.25rem;">Confianza del modelo</p>
+      <h2>{{ (forecast.latest()!.confidenceScore * 100) | number: '1.0-0' }}%</h2>
+    </div>
+    <div class="card">
+      <p style="margin-bottom:.25rem;">Condición climática</p>
+      <h2>{{ forecast.latest()!.weatherCondition }}</h2>
+    </div>
+    <div class="card">
+      <p style="margin-bottom:.25rem;">Generada</p>
+      <h2 style="font-size:1rem;">{{ forecast.latest()!.generatedAt | date: 'dd/MM/yyyy HH:mm' }}</h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Unidades proyectadas por día</h3>
+    <div class="chart">
+      @for (point of forecast.latest()!.dataPoints; track point.date) {
+        <div class="chart-col">
+          <span class="chart-value">{{ point.projectedUnits }}</span>
+          <div class="chart-bar" [style.height]="barHeight(point.projectedUnits)"></div>
+          <span class="chart-label">{{ point.dayLabel }}</span>
+          <span class="chart-dish">{{ point.dishName }}</span>
+        </div>
+      }
+    </div>
+  </div>
+}

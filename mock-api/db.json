@@ -1,0 +1,378 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Carla Gallardo",
+      "email": "admin@databitecorp.com",
+      "password": "stockia123",
+      "restaurantName": "DataBite Corp — Restaurante Demo",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "fullName": "Jesus Miranda",
+      "email": "empleado@databitecorp.com",
+      "password": "stockia123",
+      "restaurantName": "DataBite Corp — Restaurante Demo",
+      "role": "EMPLOYEE"
+    }
+  ],
+  "inventoryItems": [
+    {
+      "id": 1,
+      "name": "Pechuga de pollo",
+      "unit": "kg",
+      "quantity": 18,
+      "minThreshold": 10,
+      "storageType": "REFRIGERATED",
+      "shelfLifeDays": 4,
+      "expirationDate": "2026-10-04",
+      "unitCost": 14.5
+    },
+    {
+      "id": 2,
+      "name": "Harina de trigo",
+      "unit": "kg",
+      "quantity": 32,
+      "minThreshold": 15,
+      "storageType": "AMBIENT",
+      "shelfLifeDays": 180,
+      "expirationDate": "2027-01-29",
+      "unitCost": 3.2
+    },
+    {
+      "id": 3,
+      "name": "Queso mozzarella",
+      "unit": "kg",
+      "quantity": 4,
+      "minThreshold": 6,
+      "storageType": "REFRIGERATED",
+      "shelfLifeDays": 10,
+      "expirationDate": "2026-10-03",
+      "unitCost": 22
+    },
+    {
+      "id": 4,
+      "name": "Tomate",
+      "unit": "kg",
+      "quantity": 9,
+      "minThreshold": 8,
+      "storageType": "AMBIENT",
+      "shelfLifeDays": 6,
+      "expirationDate": "2026-10-02",
+      "unitCost": 4.1
+    },
+    {
+      "id": 5,
+      "name": "Lomo fino",
+      "unit": "kg",
+      "quantity": 0,
+      "minThreshold": 5,
+      "storageType": "FROZEN",
+      "shelfLifeDays": 30,
+      "expirationDate": "2026-10-21",
+      "unitCost": 32
+    },
+    {
+      "id": 6,
+      "name": "Lechuga",
+      "unit": "kg",
+      "quantity": 6,
+      "minThreshold": 4,
+      "storageType": "REFRIGERATED",
+      "shelfLifeDays": 5,
+      "expirationDate": "2026-10-05",
+      "unitCost": 3.5
+    },
+    {
+      "id": 7,
+      "name": "Papa",
+      "unit": "kg",
+      "quantity": 40,
+      "minThreshold": 20,
+      "storageType": "AMBIENT",
+      "shelfLifeDays": 45,
+      "expirationDate": "2026-10-31",
+      "unitCost": 2.1
+    }
+  ],
+  "recipes": [
+    {
+      "id": 1,
+      "dishName": "Pizza Margarita",
+      "active": true,
+      "ingredients": [
+        {
+          "inventoryItemId": 2,
+          "inventoryItemName": "Harina de trigo",
+          "quantityRequired": 0.3,
+          "unit": "kg"
+        },
+        {
+          "inventoryItemId": 3,
+          "inventoryItemName": "Queso mozzarella",
+          "quantityRequired": 0.2,
+          "unit": "kg"
+        },
+        {
+          "inventoryItemId": 4,
+          "inventoryItemName": "Tomate",
+          "quantityRequired": 0.15,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "dishName": "Lomo Saltado",
+      "active": true,
+      "ingredients": [
+        {
+          "inventoryItemId": 5,
+          "inventoryItemName": "Lomo fino",
+          "quantityRequired": 0.25,
+          "unit": "kg"
+        },
+        {
+          "inventoryItemId": 7,
+          "inventoryItemName": "Papa",
+          "quantityRequired": 0.3,
+          "unit": "kg"
+        },
+        {
+          "inventoryItemId": 4,
+          "inventoryItemName": "Tomate",
+          "quantityRequired": 0.1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "dishName": "Ensalada César con Pollo",
+      "active": true,
+      "ingredients": [
+        {
+          "inventoryItemId": 1,
+          "inventoryItemName": "Pechuga de pollo",
+          "quantityRequired": 0.18,
+          "unit": "kg"
+        },
+        {
+          "inventoryItemId": 6,
+          "inventoryItemName": "Lechuga",
+          "quantityRequired": 0.12,
+          "unit": "kg"
+        }
+      ]
+    }
+  ],
+  "demandForecasts": [
+    {
+      "id": 1,
+      "generatedAt": "2026-10-01T23:06:52.204Z",
+      "confidenceScore": 0.82,
+      "weatherCondition": "Soleado",
+      "dataPoints": [
+        {
+          "date": "2026-10-01",
+          "dayLabel": "Lun",
+          "dishName": "Pizza Margarita",
+          "projectedUnits": 25
+        },
+        {
+          "date": "2026-10-02",
+          "dayLabel": "Mar",
+          "dishName": "Lomo Saltado",
+          "projectedUnits": 31
+        },
+        {
+          "date": "2026-10-03",
+          "dayLabel": "Mié",
+          "dishName": "Ensalada César con Pollo",
+          "projectedUnits": 37
+        },
+        {
+          "date": "2026-10-04",
+          "dayLabel": "Jue",
+          "dishName": "Pizza Margarita",
+          "projectedUnits": 43
+        },
+        {
+          "date": "2026-10-05",
+          "dayLabel": "Vie",
+          "dishName": "Lomo Saltado",
+          "projectedUnits": 49
+        },
+        {
+          "date": "2026-10-06",
+          "dayLabel": "Sáb",
+          "dishName": "Ensalada César con Pollo",
+          "projectedUnits": 55
+        },
+        {
+          "date": "2026-10-07",
+          "dayLabel": "Dom",
+          "dishName": "Pizza Margarita",
+          "projectedUnits": 61
+        }
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "id": 1,
+      "type": "CRITICAL_STOCK",
+      "severity": "CRITICAL",
+      "message": "Lomo fino sin stock disponible.",
+      "createdAt": "2026-10-01T23:06:52.204Z",
+      "acknowledged": false,
+      "channel": "WHATSAPP",
+      "deliveredChannels": [
+        "WHATSAPP"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LOW_STOCK",
+      "severity": "WARNING",
+      "message": "Queso mozzarella por debajo del mínimo (4kg / 6kg).",
+      "createdAt": "2026-10-01T23:06:52.204Z",
+      "acknowledged": false,
+      "channel": "WHATSAPP",
+      "deliveredChannels": [
+        "WHATSAPP"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "EXPIRING_SOON",
+      "severity": "WARNING",
+      "message": "Tomate vence en 1 día.",
+      "createdAt": "2026-10-01T23:06:52.204Z",
+      "acknowledged": false,
+      "channel": "EMAIL",
+      "deliveredChannels": [
+        "EMAIL"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "IOT_FAULT",
+      "severity": "INFO",
+      "message": "Sensor de refrigerador #2 reportó una apertura de 6 minutos.",
+      "createdAt": "2026-10-01T23:06:52.204Z",
+      "acknowledged": true,
+      "channel": "EMAIL",
+      "deliveredChannels": [
+        "EMAIL"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "id": 1,
+      "type": "PURCHASE_SUGGESTION",
+      "message": "Reponer Lomo fino antes del fin de semana: la demanda proyectada sube 20%.",
+      "expectedImpact": "Evita quiebre de stock en Lomo Saltado",
+      "applied": false
+    },
+    {
+      "id": 2,
+      "type": "MENU_ADJUSTMENT",
+      "message": "La Ensalada César con Pollo creció en popularidad; considera destacarla en el menú.",
+      "expectedImpact": "+12% de margen estimado",
+      "applied": false
+    }
+  ],
+  "plans": [
+    {
+      "id": 1,
+      "name": "Esencial",
+      "monthlyPrice": 0,
+      "features": [
+        "Hasta 50 insumos",
+        "Registro de ventas básico",
+        "1 usuario"
+      ],
+      "highlighted": false
+    },
+    {
+      "id": 2,
+      "name": "Profesional",
+      "monthlyPrice": 39,
+      "features": [
+        "Insumos ilimitados",
+        "Predicción de demanda con IA",
+        "Hasta 5 usuarios",
+        "Recomendaciones automáticas"
+      ],
+      "highlighted": true
+    },
+    {
+      "id": 3,
+      "name": "IoT Completo",
+      "monthlyPrice": 79,
+      "features": [
+        "Todo lo de Profesional",
+        "Sensores IoT",
+        "Alertas en tiempo real",
+        "Usuarios ilimitados"
+      ],
+      "highlighted": false
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": 1,
+      "planId": 1,
+      "status": "ACTIVE",
+      "renewalDate": "2026-10-31",
+      "paymentMethod": "STRIPE"
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "saleDate": "2026-09-30",
+      "channel": "POS",
+      "status": "CONFIRMED",
+      "lineItems": [
+        {
+          "recipeId": 1,
+          "dishName": "Pizza Margarita",
+          "unitPrice": 28,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "saleDate": "2026-09-30",
+      "channel": "POS",
+      "status": "CONFIRMED",
+      "lineItems": [
+        {
+          "recipeId": 3,
+          "dishName": "Ensalada César con Pollo",
+          "unitPrice": 22,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "saleDate": "2026-10-01",
+      "channel": "POS",
+      "status": "CONFIRMED",
+      "lineItems": [
+        {
+          "recipeId": 2,
+          "dishName": "Lomo Saltado",
+          "unitPrice": 32,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
