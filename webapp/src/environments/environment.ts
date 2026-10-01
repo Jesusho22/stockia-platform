@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  useFakeApi: true,
-  apiBaseUrl: 'api/v1',
+  useFakeApi: false,
+  apiBaseUrl: 'https://stockia-mock-api.onrender.com/api/v1',
 };

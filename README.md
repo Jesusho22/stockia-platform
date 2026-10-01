@@ -12,10 +12,10 @@ stockia-platform/
 └── mock-api/    # json-server — API REST simulada (db.json editable)
 ```
 
-## Correr todo en local
+## La mock API ya está desplegada
 
-**Opción rápida (sin levantar la mock-api aparte):** el frontend ya trae una fake API embebida en el propio
-navegador (`angular-in-memory-web-api`), activada por defecto.
+**https://stockia-mock-api.onrender.com/api/v1** — el `webapp` apunta ahí por defecto, no hace falta levantar
+nada más para probar el frontend en local:
 
 ```bash
 cd webapp
@@ -24,7 +24,13 @@ npm start
 # http://localhost:4200
 ```
 
-**Opción con la API real simulada (json-server), igual que Qullqa:**
+(El plan gratuito de Render duerme el servicio tras ~15 min sin tráfico; el primer request tras dormir tarda
+unos segundos en responder.)
+
+**Opción offline (fake API embebida en el navegador, sin red):** en `webapp/src/environments/environment.ts`
+pon `useFakeApi: true`.
+
+**Opción con la mock API corriendo en tu máquina** (para editar `db.json` y ver los cambios al instante):
 
 ```bash
 # Terminal 1
@@ -33,12 +39,11 @@ npm install
 npm start
 # http://localhost:3000
 
-# Terminal 2
+# Terminal 2 — cambia apiBaseUrl a 'http://localhost:3000/api/v1' en environment.ts
 cd webapp
 npm install
 npm start
 ```
-Y en `webapp/src/environments/environment.ts`, pon `useFakeApi: false` y `apiBaseUrl: 'http://localhost:3000/api/v1'`.
 
 ## Funcionalidades (User Stories del Capítulo III)
 

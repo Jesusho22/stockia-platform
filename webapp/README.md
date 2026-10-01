@@ -5,8 +5,11 @@ standalone, siguiendo la misma arquitectura DDD por Bounded Context que `qullqa-
 (`upc-pre-202610-1asi0730-17953-flowbit`), adaptada a los User Stories y al modelo de dominio de StockIA
 (Capítulo III y Capítulo IV del informe).
 
-**Este repo es SOLO frontend + fake API.** No incluye backend real: todas las peticiones HTTP las responde
-`angular-in-memory-web-api` dentro del propio navegador (ver `src/app/fake-api/in-memory-data.service.ts`).
+**Este repo es SOLO frontend.** No incluye backend real: por defecto, todas las peticiones HTTP van a la mock
+API desplegada en Render — **https://stockia-mock-api.onrender.com/api/v1** (repo
+[`stockia-mock-api`](../mock-api), `json-server`). También existe una fake API embebida en el propio navegador
+(`angular-in-memory-web-api`, ver `src/app/fake-api/in-memory-data.service.ts`) para correr sin conexión;
+actívala con `useFakeApi: true` en `src/environments/environment.ts`.
 
 ## Arquitectura (DDD por Bounded Context)
 
@@ -56,8 +59,11 @@ como se pidió.
 
 ```bash
 npm install
-npm start      # http://localhost:4200 — la fake API ya está integrada, no hace falta otro proceso
+npm start      # http://localhost:4200 — habla con https://stockia-mock-api.onrender.com por defecto
 ```
+
+Nota: el plan gratuito de Render "duerme" la mock API tras ~15 min sin tráfico; el primer request tras dormir
+puede tardar unos segundos en responder mientras despierta.
 
 Credenciales de prueba (ya precargadas en el formulario de login):
 - **Administrador:** `admin@databitecorp.com` / `stockia123`
